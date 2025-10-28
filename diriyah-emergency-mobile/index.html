@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Diriyah • Emergency</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%23e53935'/></svg>">
+  <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+  <div class="app">
+    <!-- Splash / Language -->
+    <section id="screen-lang" class="screen active">
+      <div class="splash-card">
+        <div class="logo">
+          <!-- Placeholder logo (replace with official Diriyah logo image if available) -->
+          <svg viewBox="0 0 300 80" aria-label="Diriyah Logo">
+            <rect x="0" y="0" width="300" height="80" rx="12" fill="#111"/>
+            <text x="150" y="50" text-anchor="middle" fill="#fff" font-size="32" font-weight="700" font-family="system-ui, -apple-system, Segoe UI, Roboto">DIRIYAH</text>
+          </svg>
+        </div>
+        <h1 data-i18n="title">Emergency & Safety</h1>
+        <p class="muted" data-i18n="subtitle">Choose your language</p>
+        <div class="lang-buttons">
+          <button class="btn btn-primary" data-lang="en">English</button>
+          <button class="btn btn-primary" data-lang="ar">العربية</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Home / Zones -->
+    <section id="screen-zones" class="screen">
+      <header class="topbar">
+        <button class="icon-btn back" data-go="screen-lang" aria-label="Back">‹</button>
+        <h2 data-i18n="findZone">Find Your Zone</h2>
+        <div class="spacer"></div>
+      </header>
+
+      <div class="toggle-row">
+        <div class="segmented">
+          <button class="seg active" data-view="list" data-i18n="listView">List view</button>
+          <button class="seg" data-view="map" data-i18n="mapView">Map view</button>
+        </div>
+        <input id="zoneSearch" class="search" type="search" placeholder="Search…" data-i18n-placeholder="searchZones">
+      </div>
+
+      <div id="zoneList" class="list"></div>
+
+      <div id="mapPlaceholder" class="map-placeholder hidden">
+        <p data-i18n="mapPlaceholder">Map coming soon. Use the list view for now.</p>
+      </div>
+    </section>
+
+    <!-- Zone Details -->
+    <section id="screen-zone" class="screen">
+      <header class="topbar">
+        <button class="icon-btn back" data-go="screen-zones" aria-label="Back">‹</button>
+        <h2 id="zoneTitle">Zone</h2>
+        <div class="spacer"></div>
+      </header>
+
+      <div class="card">
+        <h3 data-i18n="evacPoints">Evacuation Point(s)</h3>
+        <ul id="evacList" class="evac-list"></ul>
+      </div>
+
+      <div class="card">
+        <h3 data-i18n="contacts">Emergency Contacts</h3>
+        <div id="contactList" class="contact-list"></div>
+      </div>
+
+      <div class="bottom-actions">
+        <a class="sos" href="tel:997" data-i18n="callAmbulance">Call Ambulance</a>
+        <a class="sos alt" href="tel:998" data-i18n="callCivil">Call Civil Defense</a>
+      </div>
+    </section>
+
+    <!-- Global Dock -->
+    <nav class="dock">
+      <button class="dock-btn" data-go="screen-zones">
+        <span class="emoji">📍</span>
+        <span data-i18n="locate">Locate</span>
+      </button>
+      <a class="dock-btn sos-main" href="tel:997">
+        <span class="emoji">🆘</span>
+        <span>SOS</span>
+      </a>
+      <button class="dock-btn" id="toggleLang">
+        <span class="emoji">🌐</span>
+        <span data-i18n="lang">العربية</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
